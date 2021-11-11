@@ -16,7 +16,7 @@ public class Graph {
    *     (10)         (3)
    *
    */
-  public static int[][] returnChallengeGraph(){
+  public static int[][] notDirectedGraph(){
     int n = 6;
     int[][] graph = new int[n][n];
     for (int i = 0; i < n; i++){
@@ -53,7 +53,7 @@ public class Graph {
    *      1 --> 2 -->  ->3
    *       (20)   (1)
    */
-  public static int[][] returnCities(){
+  public static int[][] directedGraph(){
     int n = 5;
     int[][] graph = new int[n][n];
     for (int i = 0; i < n; i++){
@@ -84,7 +84,7 @@ public class Graph {
    *
    **/
 
-  public static int[][] returnTree(){
+  public static int[][] tree(){
     int n = 15;
     int[][] graph = new int[n][n];
     for (int i = 0; i < n; i++){

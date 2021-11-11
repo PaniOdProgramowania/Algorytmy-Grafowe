@@ -30,6 +30,6 @@ public class Edge implements Comparable<Edge> {
 
   @Override
   public String toString() {
-    return "[from: "+ startingVertex+"-> to: "+endingVertex+", cost: "+cost+"]";
+    return "[from: " + startingVertex + "-> to: " + endingVertex + ", cost: " + cost + "]";
   }
 }
