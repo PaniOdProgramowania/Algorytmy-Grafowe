@@ -10,25 +10,25 @@ public class Dijkstra {
 
   public static int[][] dijkstra(int[][] graph) {
     int n = graph.length;
-    int[][] dijkstraTable = new int[n][2];
+    int[][] helperTable = new int[n][2];
 
     List<Integer> notVisitedVertexes = new ArrayList<>();
     for (int i = 0; i < n; i++) {
       notVisitedVertexes.add(i);
     }
 
-    setUpHelperTable(n, dijkstraTable);
+    setUpHelperTable(n, helperTable);
 
     while (!notVisitedVertexes.isEmpty()) {
-      int startingVertex = getCheapestElement(notVisitedVertexes, dijkstraTable);
-      for (int coloumn = 0; coloumn < n; coloumn++) {
-        if (graph[startingVertex][coloumn] != 0) {
-          updateCost(dijkstraTable[startingVertex][0] + graph[startingVertex][coloumn], dijkstraTable, startingVertex, coloumn);
+      int startingVertex = getCheapestElement(notVisitedVertexes, helperTable);
+      for (int column = 0; column < n; column++) {
+        if (graph[startingVertex][column] != 0) {
+          updateCost(helperTable[startingVertex][0] + graph[startingVertex][column], helperTable, startingVertex, column);
         }
       }
       notVisitedVertexes.remove((Integer) startingVertex);
     }
-    return dijkstraTable;
+    return helperTable;
   }
 
   private static void setUpHelperTable(int n, int[][] dijkstraTable) {
