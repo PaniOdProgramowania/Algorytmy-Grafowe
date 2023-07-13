@@ -1,6 +1,6 @@
 package pl.paniodprogramowania.graph;
 
-public class Graph {
+public class AdjacencyMatrixGraph {
 
   /**
    *           (4)
@@ -50,7 +50,7 @@ public class Graph {
    * (5)  |  \  (45)     |  (25)
    *      |   \_______,  |
    *      v           \  |
-   *      1 --> 2 -->  ->3
+   *      1 --> 2 -----> 3
    *       (20)   (1)
    */
   public static int[][] directedGraph(){
