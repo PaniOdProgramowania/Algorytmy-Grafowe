@@ -3,6 +3,33 @@ package pl.paniodprogramowania.graph.nodes;
 public class NodeGraph {
   public static final int ROOT_INDEX = 0;
 
+  /**
+   *                  0
+   *               /     \
+   *             /        \
+   *           /           \
+   *         /              \
+   *       1   ___________>  2
+   *     /                 /  \
+   *    3                 5    6
+   *   / \               / \
+   *  7  8 <-------------   -- 9
+   *
+   *
+   **/
+  public static Node graph() {
+    var node9 = new Node(null, null, 9);
+    var node8 = new Node(null, null, 8);
+    var node7 = new Node(null, null, 7);
+    var node6 = new Node(null, null, 6);
+    var node5 = new Node(node8, node9, 5);
+    var node3 = new Node(node7, node8, 3);
+    var node2 = new Node(node5, node6, 2);
+    var node1 = new Node(node3, node2, 1);
+    return new Node(node1, node2,  0);
+// 0, 1, 2, 3, 5, 6, 7, 8, 9,
+  }
+
 
   /**
    *                  0

@@ -2,10 +2,10 @@ package pl.paniodprogramowania.traversing;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 import pl.paniodprogramowania.graph.nodes.Node;
 
 public class BFS {
@@ -35,28 +35,31 @@ public class BFS {
     return path;
   }
 
-  public static List<Integer> bfs(Node startingNode) {
-    Map<Integer, Boolean> visitedNode = new HashMap<>();
-    Queue<Node> queue = new ArrayDeque<>();
-    queue.offer(startingNode);
+  public static List<Integer> bfs2(Node root) {
     List<Integer> path = new ArrayList<>();
+    path.add(root.getNodeNumber());
+    System.out.print(root.getNodeNumber() + " -> ");
+    Queue<Node> queue = new ArrayDeque<>();
+    queue.offer(root);
+    Set<Node> visitedVertexesIds = new HashSet<>();
 
     while (!queue.isEmpty()) {
-      Node u = queue.poll();
-      Node leftNode = u.getLeftNode();
-      Node rightNode = u.getRightNode();
+      Node nodeTemp = queue.poll();
+      Node left = nodeTemp.getLeftNode();
+      Node right = nodeTemp.getRightNode();
 
-      if (leftNode != null &&
-          (!visitedNode.containsKey(leftNode.getNodeNumber()) || !visitedNode.get(leftNode.getNodeNumber()))) {
-        queue.offer(leftNode);
+      if (!visitedVertexesIds.contains(left) && left != null) {
+        System.out.print(left.getNodeNumber() + " -> ");
+        queue.offer(left);
+        visitedVertexesIds.add(left);
+        path.add(left.getNodeNumber());
       }
-      if (rightNode != null &&
-          (!visitedNode.containsKey(rightNode.getNodeNumber()) || !visitedNode.get(rightNode.getNodeNumber()))) {
-        queue.offer(rightNode);
+      if (!visitedVertexesIds.contains(right) && right != null) {
+        System.out.print(right.getNodeNumber() + " -> ");
+        queue.offer(right);
+        visitedVertexesIds.add(right);
+        path.add(right.getNodeNumber());
       }
-      visitedNode.put(u.getNodeNumber(), true);
-      path.add(u.getNodeNumber());
-      System.out.print("wierzcholek " + u.getNodeNumber() + "-> ");
     }
     return path;
   }

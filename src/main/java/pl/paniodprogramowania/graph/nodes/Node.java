@@ -1,5 +1,7 @@
 package pl.paniodprogramowania.graph.nodes;
 
+import java.util.Objects;
+
 public class Node {
   private final Node leftNode;
   private final Node rightNode;
@@ -21,5 +23,21 @@ public class Node {
 
   public int getNodeNumber() {
     return nodeNumber;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {return true;}
+    if (o == null || getClass() != o.getClass()) {return false;}
+    Node node = (Node) o;
+    return nodeNumber == node.nodeNumber && Objects.equals(
+        leftNode,
+        node.leftNode
+    ) && Objects.equals(rightNode, node.rightNode);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(leftNode, rightNode, nodeNumber);
   }
 }

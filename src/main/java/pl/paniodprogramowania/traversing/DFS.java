@@ -1,13 +1,12 @@
 package pl.paniodprogramowania.traversing;
 
+import java.util.LinkedList;
+
 public class DFS {
 
   public static void dfs(int[][] graph){
     int n = graph.length;
     boolean[] visited = new boolean[n];
-    for (int i = 0; i < n; i++){
-      visited[i] = false;
-    }
     for (int i = 0; i < n; i++){
       if (!visited[i]){
         visitNode(visited, graph, i);

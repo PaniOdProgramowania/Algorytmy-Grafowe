@@ -45,12 +45,26 @@ class BFSTest {
     Node graph = NodeGraph.tree();
 
     // when
-    List<Integer> nodesInOrder = BFS.bfs(graph);
+    List<Integer> nodesInOrder = BFS.bfs2(graph);
 
     // then
     for (int i = 0; i < 15; i++) {
       Assertions.assertEquals(nodesInOrder.get(i), i);
     }
+  }
+
+
+  @Test
+  public void shouldReturnProperBFSRouteForTreeNodesNoteasy() {
+    // given
+    Node graph = NodeGraph.graph();
+
+    // when
+    List<Integer> nodesInOrder = BFS.bfs2(graph);
+
+    // then
+    List<Integer> expected = List.of(0, 1, 2, 3, 5, 6, 7, 8, 9);
+    Assertions.assertEquals(expected, nodesInOrder);
   }
 
   // @Test
