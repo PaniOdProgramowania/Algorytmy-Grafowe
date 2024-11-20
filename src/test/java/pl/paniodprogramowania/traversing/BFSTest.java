@@ -15,7 +15,7 @@ class BFSTest {
     int[][] graph = AdjacencyMatrixGraph.tree();
 
     // when
-    List<Integer> nodesInOrder = BFS.bfs(graph);
+    List<Integer> nodesInOrder = BFS.bfs(graph, 0);
 
     // then
     for (int i = 0; i < 15; i++) {
@@ -29,7 +29,7 @@ class BFSTest {
     int[][] graph = AdjacencyMatrixGraph.directedGraph();
 
     // when
-    List<Integer> nodesInOrder = BFS.bfs(graph);
+    List<Integer> nodesInOrder = BFS.bfs(graph, 0);
 
     // then
     Assertions.assertEquals(nodesInOrder.get(0), 0);
@@ -45,7 +45,7 @@ class BFSTest {
     Node graph = NodeGraph.tree();
 
     // when
-    List<Integer> nodesInOrder = BFS.bfs2(graph);
+    List<Integer> nodesInOrder = BFS.bfsWithNodes(graph);
 
     // then
     for (int i = 0; i < 15; i++) {
@@ -60,28 +60,28 @@ class BFSTest {
     Node graph = NodeGraph.graph();
 
     // when
-    List<Integer> nodesInOrder = BFS.bfs2(graph);
+    List<Integer> nodesInOrder = BFS.bfsWithNodes(graph);
 
     // then
     List<Integer> expected = List.of(0, 1, 2, 3, 5, 6, 7, 8, 9);
     Assertions.assertEquals(expected, nodesInOrder);
   }
 
-  // @Test
+   @Test
   public void shouldReturnProperBFSRouteForNotDirectedGraphAdjacencyMatrix() {
     // given
     int[][] graph = AdjacencyMatrixGraph.notDirectedGraph();
 
     // when
-    List<Integer> nodesInOrder = BFS.bfs(graph);
+    List<Integer> nodesInOrder = BFS.bfs(graph, 1);
 
     // then
-    Assertions.assertEquals(nodesInOrder.get(0), 2);
-    Assertions.assertEquals(nodesInOrder.get(1), 3);
-    Assertions.assertEquals(nodesInOrder.get(2), 4);
-    Assertions.assertEquals(nodesInOrder.get(3), 6);
-    Assertions.assertEquals(nodesInOrder.get(4), 5);
-    Assertions.assertEquals(nodesInOrder.get(5), 1);
+    Assertions.assertEquals(1, nodesInOrder.get(0));
+    Assertions.assertEquals(2, nodesInOrder.get(1));
+    Assertions.assertEquals(3, nodesInOrder.get(2));
+    Assertions.assertEquals(5, nodesInOrder.get(3));
+    Assertions.assertEquals(4, nodesInOrder.get(4));
+    Assertions.assertEquals(0, nodesInOrder.get(5));
   }
 
 }

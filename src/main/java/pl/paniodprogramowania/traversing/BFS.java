@@ -10,34 +10,35 @@ import pl.paniodprogramowania.graph.nodes.Node;
 
 public class BFS {
 
-  public static List<Integer> bfs(int[][] graph) {
+  public static List<Integer> bfs(int[][] graph, int startingVertex) {
     int n = graph.length;
-    boolean[] visited = new boolean[n];
+    Set<Integer> visited = new HashSet<>();
     List<Integer> path = new ArrayList<>();
     Queue<Integer> queue = new ArrayDeque<>();
 
-    int startingVertex = 0;
     queue.offer(startingVertex);
 
     while (!queue.isEmpty()) {
       int u = queue.poll();
-      for (int i = 0; i < n; i++) {
+      for (int i = startingVertex, j = 0; j < n; i++, j++) {
+        if (i >= n) {
+          i -= n;
+        }
         if (graph[u][i] != 0) {
-          if (!visited[i]) {
+          if (!visited.contains(i) && !queue.contains(i)) {
             queue.offer(i);
           }
         }
       }
-      visited[u] = true;
+      visited.add(u);
       path.add(u);
       System.out.print("wierzcholek " + u + "-> ");
     }
     return path;
   }
 
-  public static List<Integer> bfs2(Node root) {
+  public static List<Integer> bfsWithNodes(Node root) {
     List<Integer> path = new ArrayList<>();
-    path.add(root.getNodeNumber());
     System.out.print(root.getNodeNumber() + " -> ");
     Queue<Node> queue = new ArrayDeque<>();
     queue.offer(root);
@@ -48,17 +49,17 @@ public class BFS {
       Node left = nodeTemp.getLeftNode();
       Node right = nodeTemp.getRightNode();
 
-      if (!visitedVertexesIds.contains(left) && left != null) {
-        System.out.print(left.getNodeNumber() + " -> ");
+      if (left != null){
         queue.offer(left);
-        visitedVertexesIds.add(left);
-        path.add(left.getNodeNumber());
       }
-      if (!visitedVertexesIds.contains(right) && right != null) {
-        System.out.print(right.getNodeNumber() + " -> ");
+      if (right != null) {
         queue.offer(right);
-        visitedVertexesIds.add(right);
-        path.add(right.getNodeNumber());
+      }
+
+      if (!visitedVertexesIds.contains(nodeTemp)) {
+        System.out.print(nodeTemp.getNodeNumber() + " -> ");
+        visitedVertexesIds.add(nodeTemp);
+        path.add(nodeTemp.getNodeNumber());
       }
     }
     return path;

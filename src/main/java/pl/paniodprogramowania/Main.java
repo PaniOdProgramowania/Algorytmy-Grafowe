@@ -16,7 +16,7 @@ public class Main {
     AdjacencyMatrixGraph.printGraph(tree);
 
     System.out.println("\n BFS");
-    BFS.bfs(tree);
+    BFS.bfs(tree, 0);
 
     System.out.println("\n DFS: ");
     DFS.dfs(tree);

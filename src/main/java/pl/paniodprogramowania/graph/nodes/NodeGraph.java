@@ -27,7 +27,6 @@ public class NodeGraph {
     var node2 = new Node(node5, node6, 2);
     var node1 = new Node(node3, node2, 1);
     return new Node(node1, node2,  0);
-// 0, 1, 2, 3, 5, 6, 7, 8, 9,
   }
 
 
@@ -60,8 +59,7 @@ public class NodeGraph {
     var node3 = new Node(node7, node8, 3);
     var node2 = new Node(node5, node6, 2);
     var node1 = new Node(node3, node4, 1);
-    var node0 = new Node(node1, node2, ROOT_INDEX);
-    return node0;
+    return new Node(node1, node2, ROOT_INDEX);
   }
 
   public static String treeVisual = """

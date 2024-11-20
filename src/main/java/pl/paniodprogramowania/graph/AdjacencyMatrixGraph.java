@@ -4,26 +4,21 @@ public class AdjacencyMatrixGraph {
 
   /**
    *           (4)
-   *       2 ------,
+   *       1 ------,
    *   (9) |       | (4)
    *       |       |
    *       |  (1)  |   (9)
-   *       3 ----- 4 ----- 5
+   *       2 ----- 3 ----- 4
    *       |       |       |
    *       |       | (2)   | (2)
    *       |       |       |
-   *       '-----  6 ----- 1
+   *       '-----  5 ----- 0
    *     (10)         (3)
    *
    */
   public static int[][] notDirectedGraph(){
     int n = 6;
     int[][] graph = new int[n][n];
-    for (int i = 0; i < n; i++){
-      for (int j = 0; j < n; j++){
-        graph[i][j] = 0;
-      }
-    }
     graph[0][4] = 2;
     graph[0][5] = 3;
     graph[1][2] = 9;
