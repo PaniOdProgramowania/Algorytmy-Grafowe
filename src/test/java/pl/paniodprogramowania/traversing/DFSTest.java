@@ -44,9 +44,10 @@ class DFSTest {
     Node graph = NodeGraph.tree();
 
     // when
-    List<Integer> actual = DFS.dfs(graph);
+    List<Node> result = DFS.dfs(graph);
 
     // then
+    List<Integer> actual = result.stream().map(Node::getNodeNumber).toList();
     List<Integer> expected = List.of(0, 1, 3, 7, 8, 4, 9, 10, 2, 5, 11, 12, 6, 13, 14);
     assertEquals(expected, actual);
   }
@@ -58,9 +59,10 @@ class DFSTest {
     Node graph = NodeGraph.graph();
 
     // when
-    List<Integer> actual = DFS.dfs(graph);
+    List<Node> result = DFS.dfs(graph);
 
     // then
+    List<Integer> actual = result.stream().map(Node::getNodeNumber).toList();
     List<Integer> expected = List.of(0, 1, 3, 7, 8, 2, 5, 9, 6);
     assertEquals(expected, actual);
   }

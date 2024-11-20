@@ -12,15 +12,15 @@ public class DFS {
     return visitNode(new HashSet<>(), new ArrayList<>(), graph, startingNode);
   }
 
-  public static List<Integer> dfs(Node node) {
+  public static List<Node> dfs(Node node) {
     return dfsWithNodesHelper(node, new HashSet<>(), new ArrayList<>());
   }
 
-  private static List<Integer> dfsWithNodesHelper(Node node, Set<Node> visited, List<Integer> path){
+  private static List<Node> dfsWithNodesHelper(Node node, Set<Node> visited, List<Node> path){
     if (node != null && !visited.contains(node)) {
       System.out.println(node.getNodeNumber() + " -> ");
       visited.add(node);
-      path.add(node.getNodeNumber());
+      path.add(node);
       dfsWithNodesHelper(node.getLeftNode(), visited, path);
       dfsWithNodesHelper(node.getRightNode(), visited, path);
     }

@@ -82,11 +82,6 @@ public class AdjacencyMatrixGraph {
   public static int[][] tree(){
     int n = 15;
     int[][] graph = new int[n][n];
-    for (int i = 0; i < n; i++){
-      for (int j = 0; j < n; j++){
-        graph[i][j] = 0;
-      }
-    }
     graph[0][1] = 1;
     graph[0][2] = 1;
     graph[1][0] = 1;
@@ -115,6 +110,56 @@ public class AdjacencyMatrixGraph {
     graph[12][5] = 1;
     graph[13][6] = 1;
     graph[14][6] = 1;
+    return graph;
+  }
+
+  /**
+   *            0
+   *          /
+   *        1
+   *
+   *        2
+   *         \
+   *          3
+   *
+   **/
+  public static int[][] fourVertexesTwoEdges(){
+    int n = 15;
+    int[][] graph = new int[n][n];
+    graph[0][1] = 1;
+    graph[1][0] = 1;
+    graph[2][3] = 1;
+    graph[3][2] = 1;
+    return graph;
+  }
+
+  /**
+   *                  0
+   *               /     \
+   *             /        \
+   *           /           \
+   *         /              \
+   *       1                2
+   *     /   \            /  \
+   *    3     4         5      6
+   *
+   *
+   **/
+  public static int[][] binaryTree3Levels(){
+    int n = 15;
+    int[][] graph = new int[n][n];
+    graph[0][1] = 1;
+    graph[0][2] = 1;
+    graph[1][0] = 1;
+    graph[1][3] = 1;
+    graph[1][4] = 1;
+    graph[2][0] = 1;
+    graph[2][5] = 10;
+    graph[2][6] = 1;
+    graph[3][1] = 1;
+    graph[4][1] = 1;
+    graph[5][2] = 1;
+    graph[6][2] = 1;
     return graph;
   }
 
