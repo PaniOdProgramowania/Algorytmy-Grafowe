@@ -45,7 +45,7 @@ class BFSTest {
     Node graph = NodeGraph.tree();
 
     // when
-    List<Integer> nodesInOrder = BFS.bfsWithNodes(graph);
+    List<Integer> nodesInOrder = BFS.bfs(graph);
 
     // then
     for (int i = 0; i < 15; i++) {
@@ -60,7 +60,7 @@ class BFSTest {
     Node graph = NodeGraph.graph();
 
     // when
-    List<Integer> nodesInOrder = BFS.bfsWithNodes(graph);
+    List<Integer> nodesInOrder = BFS.bfs(graph);
 
     // then
     List<Integer> expected = List.of(0, 1, 2, 3, 5, 6, 7, 8, 9);

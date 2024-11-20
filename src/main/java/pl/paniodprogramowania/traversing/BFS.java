@@ -37,7 +37,7 @@ public class BFS {
     return path;
   }
 
-  public static List<Integer> bfsWithNodes(Node root) {
+  public static List<Integer> bfs(Node root) {
     List<Integer> path = new ArrayList<>();
     System.out.print(root.getNodeNumber() + " -> ");
     Queue<Node> queue = new ArrayDeque<>();

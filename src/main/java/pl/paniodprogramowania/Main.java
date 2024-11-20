@@ -19,8 +19,9 @@ public class Main {
     BFS.bfs(tree, 0);
 
     System.out.println("\n DFS: ");
-    DFS.dfs(tree);
+    DFS.dfs(tree, 0);
 
+    System.out.println();
     int[][] graph = AdjacencyMatrixGraph.notDirectedGraph();
     AdjacencyMatrixGraph.printGraph(graph);
     System.out.println("**----- Minimalne Drzewo Rozpinajace - Algorytm Prima -----**");
