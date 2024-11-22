@@ -126,7 +126,7 @@ public class NodeGraph {
     var node3 = new Node(null, null, 3);
     var node2 = new Node(node3, null, 2);
     var node1 = new Node(null, null, 1);
-    Node node0 = new Node(node1, null, ROOT_INDEX);
+    Node node0 = new Node(node1, null, 0);
     return List.of(node0, node1, node2, node3);
   }
 }

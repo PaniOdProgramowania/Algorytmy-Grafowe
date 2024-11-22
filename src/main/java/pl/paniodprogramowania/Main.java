@@ -6,8 +6,8 @@ import pl.paniodprogramowania.height.HeightOfTree;
 import pl.paniodprogramowania.list.FindMinMax;
 import pl.paniodprogramowania.minimalspanningtree.MinimalSpanningTreePrim;
 import pl.paniodprogramowania.shortestpath.Dijkstra;
-import pl.paniodprogramowania.traversing.BFS;
-import pl.paniodprogramowania.traversing.DFS;
+import pl.paniodprogramowania.traversing.bfs.MatrixBFS;
+import pl.paniodprogramowania.traversing.dfs.MatrixDFS;
 
 public class Main {
 
@@ -16,10 +16,10 @@ public class Main {
     AdjacencyMatrixGraph.printGraph(tree);
 
     System.out.println("\n BFS");
-    BFS.bfs(tree, 0);
+    MatrixBFS.bfs(tree, 0);
 
     System.out.println("\n DFS: ");
-    DFS.dfs(tree, 0);
+    MatrixDFS.dfs(tree, 0);
 
     System.out.println();
     int[][] graph = AdjacencyMatrixGraph.notDirectedGraph();
